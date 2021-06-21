@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Task from './Task'
 import ProjectInfo from './ProjectInfo'
+import PlusImg from '../assets/plushover.svg'
 
 export default class Content extends Component {
 
@@ -15,10 +16,18 @@ export default class Content extends Component {
 		paddingRight: "25px"
 	}
 
+	countDoneTasks() {
+		let doneTasks = 0
+		this.props.tasks.forEach(task => {
+			task.steps.every(step => step.done) && doneTasks++
+		})
+		return doneTasks
+	}
+
 	render() {
 		return (
 			<div id="scrollwrap" style={this.scrollwrapStyle}>
-				<ProjectInfo project={this.props.project} tasksLength={this.props.tasks.length}></ProjectInfo>
+				<ProjectInfo project={this.props.project} tasksLength={this.props.tasks.length} tasksDone={this.countDoneTasks()}></ProjectInfo>
 				{this.props.tasks.map( task => {
 					return (
 					<Task
@@ -29,7 +38,8 @@ export default class Content extends Component {
 						onTaskNameChangeRequest={(taskID) => this.props.onTaskNameChangeRequest(task.taskID)}>
 					</Task>);
 				})}
-				<div className="tab phantom"><h2>Add Task +</h2></div>
+				{/* <div className="tab phantom"><h2>Add Task +</h2></div> */}
+				<button className="add"></button>
 			</div>
 		);
 	}

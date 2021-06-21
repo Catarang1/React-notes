@@ -4,7 +4,7 @@
 .tab_border {
 	padding: 8px 2px 2px 2px;
 	background: var(--blue-grad);
-	border-radius: 8px;
+	border-radius: 12px;
 	transition: box-shadow 0.2s ease-in-out;
 }
 
@@ -13,7 +13,7 @@
 	padding: 45px 35px 30px 35px;
 	background-color: var(--tab-grey);
 	height:max-content;
-	border-radius: 8px;
+	border-radius: 12px;
 	box-shadow: 0 0 50px 0 #0e0d1a inset;
 	flex-shrink: 0;
 }
@@ -22,7 +22,7 @@
 	height: 300px;
 	padding: 0;
 	background:none;
-	border-radius: 8px;
+	border-radius: 12px;
 	box-shadow: none;
 	/* border: dotted thick var(--tab-grey) ; */
 	text-align: center;
@@ -41,7 +41,7 @@
 	text-decoration: underline;
 }
 
-.tab > *:not(:first-child, :last-child) {
+.tab > *:not(/* :first-child, */ :last-child) {
 	margin-bottom: 12px;
 }
 
@@ -53,7 +53,7 @@
 }
 
 .tab_border.red {background: var(--red-grad);}
-.tab_border.red:hover {box-shadow: 0 0 50px 0 #551B00;}
+.tab_border.red:hover {box-shadow: 0 0 50px 0 #2F0007;}
 .tab_border.red .steps::-webkit-scrollbar-thumb {background-color: var(--red);}
 .tab_border.red .steps {scrollbar-color: var(--red) transparent}
 
@@ -102,4 +102,80 @@ ul {
 
 .task li {
 	margin-bottom: 6px;
+}
+
+#menu {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	display: block;
+}
+
+#menu > li {
+	display: inline-block;
+	/* background-color: #536dff; */
+	margin-left: 16px;
+	padding: 6px 2px;
+	position: relative;
+	color: var(--text-grey);
+}
+
+#menu > li > .underline {
+	position: absolute;
+	top: calc(100% + 6px);
+	height: 2px;
+	left: 0;
+	width: 0;
+	background-color: var(--purple2);
+	transition: width .2s ease-in-out;
+}
+
+#menu > li:hover > span {
+	cursor: pointer;
+	color: white !important;
+
+}
+
+#menu > li > span > img {
+	height: 1.4em;
+	vertical-align: middle;
+}
+
+#menu > li:hover > .underline {
+	width: 100%;
+}
+
+#addTaskButton {
+	height: 100px;
+}
+
+button.add {
+	background: center/60% no-repeat url(../../assets/addition.svg);
+	width: 48px; height: 48px;
+	flex-shrink: 0;
+	border: 2px solid var(--purple2);
+	background-color: var(--tab-grey);
+	border-radius: 12px;
+	background-position: center;
+	background-size: 60%;
+	background-repeat: no-repeat;
+}
+
+button.add:hover {
+	border-color: var(--purple-light);
+	box-shadow: 0 0 20px 0 var(--purple);
+
+}
+
+circle.progress {
+	transition: 0.2s ease-in-out stroke-dashoffset;
+}
+
+.progressTab {
+	display: flex;
+    align-items: center;
+}
+
+.progressCircle{
+	margin-right: 8px;
 }

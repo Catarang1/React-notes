@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-/* import {Data} from '../data.js' */
 
 import {FlatData} from '../data_flat'
 // Component imports
-import Menu from './Menu';
+import ProjectList from './ProjectList';
 import Content from './Content';
 import MessageBox from './MessageBox';
+import Menu from './Menu';
 
 export default class App extends Component {
 
@@ -68,7 +68,7 @@ export default class App extends Component {
 		return (
 			<>
 
-				<Menu projects={this.state.projects} onMenuSelect={this.handleMenuSelect} />
+				<ProjectList projects={this.state.projects} onMenuSelect={this.handleMenuSelect} />
 
 				<Content
 					project={this.state.projects[this.state.selectedProject]}
@@ -82,6 +82,8 @@ export default class App extends Component {
 					dialog={this.state.dialog}
 					onDialogDismiss={this.handleDialogDismiss}
 					onDialogAccept={this.handleDialogAccept}/>
+
+				<Menu></Menu>
 
 			</>
 		);

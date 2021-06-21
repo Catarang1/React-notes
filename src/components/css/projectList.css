@@ -1,0 +1,60 @@
+#projectList {width: 48px;}
+
+#projectList > button, #projectList > button.default, button.add {
+	width: 48px; height: 48px;
+	margin: 8px 0;
+	border-radius: 12px;
+	border: 2px solid var(--purple2);
+	background-color: var(--tab-grey);
+	background-position: center;
+	background-size: 60%;
+	background-repeat: no-repeat;
+	position: relative;
+	transition-property: border box-shadow;
+	transition: 0.2s ease-in-out;
+}
+
+#projectList > button:hover {
+	box-shadow: 0 0 20px 0 var(--purple);
+	border-color: var(--purple-light);
+}
+
+#projectList > button.workgroup, button.workgroup {
+	border: none;
+}
+
+#projectList > button:nth-child(1) {background-image: url(../../assets/add.svg);}
+#projectList > button:nth-last-child(2) {background-image: url(../../assets/settings.svg);}
+#projectList > button:nth-last-child(1) {background-image: url(../../assets/cross.svg);}
+
+#projectList > button.bell {background: center/60% no-repeat url(../../assets/m_ack.svg), var(--blue-grad);}
+#projectList > button.plane {background: center/60% no-repeat url(../../assets/airplane.svg), var(--blue-grad);}
+#projectList > button.time {background: center/60% no-repeat url(../../assets/wristwatch.svg), var(--blue-grad);}
+#projectList > button.medal {background: center/60% no-repeat url(../../assets/medal.svg), var(--blue-grad);}
+#projectList > button.boat {background: center/60% no-repeat url(../../assets/boat.svg), var(--blue-grad);}
+
+.tooltip {
+	position: absolute;
+	display: block;
+	padding: .5em;
+	background-color: var(--tab-grey);
+	border: thin solid rgba(255,255,255,0.2);
+	border-radius: 8px;
+	left: 100%;
+	top: 50%;
+	transform: translate(10px, -50%);
+	width: 100px;
+	max-width: 250px;
+	display: none;
+	color: white;
+	word-wrap: break-word;
+	word-break: keep-all;
+	z-index: 499;
+}
+
+#projectList > button:hover >.tooltip {display: block;}
+
+.separator {
+	height: 5%;
+	border-right: 5px dotted white
+}
