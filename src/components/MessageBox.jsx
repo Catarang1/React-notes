@@ -22,6 +22,14 @@ export default class MessageBox extends Component {
 		} else { return <p>{this.props.dialog.prompt}</p> }
 	}
 
+	renderTickButton() {
+		if (this.props.dialog.type ==='txt') {
+			return <img onClick={() => this.props.onDialogAccept(document.getElementById('messageBoxText').value)} src={Tick} alt="accept"></img>
+		} else if (this.props.dialog.type ==='bin') {
+			return <img onClick={() => this.props.onDialogAccept(true)} src={Tick} alt="accept"></img>
+		} else return ""
+	}
+
 	render() {
 		return (
 			<div id="messageBox" className={this.props.dialog.show ? "show" : ""}>
@@ -30,7 +38,7 @@ export default class MessageBox extends Component {
 					{this.renderContent()}
 				</span>
 				<img onClick={this.props.onDialogDismiss} src={Cross} alt="dismiss"></img>
-				{this.props.dialog.type !== 'ack' ? <img onClick={() => this.props.onDialogAccept(document.getElementById('messageBoxText').value)} src={Tick} alt="accept"></img> : ""}
+				{this.renderTickButton()}
 			</div>
 		);
 	}

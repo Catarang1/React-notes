@@ -11,7 +11,7 @@ export default class Step extends Component {
 						{type: 'checkbox',
 						checked: this.props.done,
 						onChange: this.props.onCheckboxChange})}
-					<h2>{this.props.name}</h2>
+					<h2 onClick={this.props.onStepNameChangeRequest} className="stepHeadline">{this.props.name}</h2>
 				</div>
 				<ul>
 					{this.props.notes.map( note => {

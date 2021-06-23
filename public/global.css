@@ -9,7 +9,7 @@
 	font-family: 'PT Sans', sans-serif;
 	font-weight: 400;
 	color: var(--text-grey);
-	font-size: 16px;
+	font-size: 14px;
 	scrollbar-width: thin;
 	scrollbar-color: var(--purple) var(--dark-bg);
 }
@@ -32,7 +32,7 @@
 	--red2: #FF512F;
 
 	--green: #00ff87;
-	--green2: #10cb42;
+	--green2: #0aae36;
 
 	--text-grey: #6b6b88;
 	--tab-grey: #1F1E31;
@@ -66,7 +66,7 @@ button, input[type='text'] {
 }
 
 h1 {
-	font-size: 32px;
+	font-size: 28px;
 	color: white;
 }
 

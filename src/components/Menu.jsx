@@ -2,7 +2,7 @@ import SettingsIco from "../assets/settings.svg"
 import LogOutIco from "../assets/cross.svg"
 import LanguageIco from "../assets/location.svg"
 
-const Menu = ({}) => {
+const Menu = () => {
 	return (
 		<ul id="menu">
 			<li>

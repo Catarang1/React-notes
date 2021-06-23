@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Task from './Task'
 import ProjectInfo from './ProjectInfo'
-import PlusImg from '../assets/plushover.svg'
 
 export default class Content extends Component {
 
@@ -27,19 +26,30 @@ export default class Content extends Component {
 	render() {
 		return (
 			<div id="scrollwrap" style={this.scrollwrapStyle}>
-				<ProjectInfo project={this.props.project} tasksLength={this.props.tasks.length} tasksDone={this.countDoneTasks()}></ProjectInfo>
+				<ProjectInfo
+					project={this.props.project}
+					tasksLength={this.props.tasks.length}
+					tasksDone={this.countDoneTasks()}
+					onProjectEditRequest={(projectID)=>this.props.onProjectEditRequest(projectID)}
+					onProjectDeleteRequest={(projectID)=>this.props.onProjectDeleteRequest(projectID)}
+					onTaskAddRequest={this.props.onTaskAddRequest}>
+				</ProjectInfo>
 				{this.props.tasks.map( task => {
 					return (
 					<Task
 						name={task.name}
 						steps={task.steps}
+						id={task.id}
 						key={this.props.tasks.indexOf(task)}
+						onStepNameChangeRequest={(stepID) => this.props.onStepNameChangeRequest(stepID)}
 						onCheckboxChange={ (stepID) => this.props.onCheckboxChange(stepID) }
-						onTaskNameChangeRequest={(taskID) => this.props.onTaskNameChangeRequest(task.taskID)}>
+						onTaskNameChangeRequest={(taskID) => this.props.onTaskNameChangeRequest(task.taskID)}
+						onTaskDeleteRequest={(taskID) => this.props.onTaskDeleteRequest(task.taskID)}
+						onStepAddRequest={(taskID) => this.props.onStepAddRequest(task.taskID)}
+						onTaskAddRequest={this.props.onTaskAddRequest}>
+
 					</Task>);
 				})}
-				{/* <div className="tab phantom"><h2>Add Task +</h2></div> */}
-				<button className="add"></button>
 			</div>
 		);
 	}

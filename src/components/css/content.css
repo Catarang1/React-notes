@@ -10,7 +10,7 @@
 
 .tab {
 	width: 300px;
-	padding: 45px 35px 30px 35px;
+	padding: 30px 35px 30px 35px;
 	background-color: var(--tab-grey);
 	height:max-content;
 	border-radius: 12px;
@@ -66,7 +66,6 @@
 
 .tab h1 {
 	text-transform: capitalize;
-	margin-bottom: 24px !important;
 }
 
 .tab_border:first-child ul {
@@ -167,8 +166,9 @@ button.add:hover {
 
 }
 
-circle.progress {
-	transition: 0.2s ease-in-out stroke-dashoffset;
+circle.progress, svg.progressCircle {
+	transition: 0.5s ease-in-out;
+	transition-property: stroke-dasharray stroke;
 }
 
 .progressTab {
@@ -177,5 +177,45 @@ circle.progress {
 }
 
 .progressCircle{
-	margin-right: 8px;
+	margin-right: 4px;
+}
+
+.taskHeadline, .stepHeadline {
+	cursor: pointer;
+}
+
+.buttonRow > button {
+	width: 32px; height: 32px;
+	border-radius: 8px;
+	margin-right: 6px;
+	cursor: pointer;
+}
+
+.tab_border .buttonRow > button {
+	border: 2px solid var(--purple2);
+}
+
+.tab_border.red .buttonRow > button {
+	border: 2px solid var(--red);
+}
+
+.tab_border.green .buttonRow > button {
+	border: 2px solid var(--green);
+}
+
+button.bell {background: center/70% no-repeat url(../../assets/m_ack.svg);}
+button.plane {background: center/70% no-repeat url(../../assets/airplane.svg);}
+button.time {background: center/70% no-repeat url(../../assets/wristwatch.svg);}
+button.medal {background: center/70% no-repeat url(../../assets/medal.svg);}
+button.boat {background: center/70% no-repeat url(../../assets/boat.svg);}
+button.trash {background: center/70% no-repeat url(../../assets/can.svg);}
+button.add {background: center/70% no-repeat url(../../assets/add.svg);}
+button.edit {background: center/70% no-repeat url(../../assets/edit.svg);}
+
+#shadow {
+	background: linear-gradient(to right, transparent, var(--dark-bg));
+	position: absolute;
+	width: 25px;
+	height: 100%;
+	right: 42px;
 }

@@ -15,11 +15,7 @@ export default class Task extends Component {
 			step.done && finishedSteps ++
 		});
 
-		return (finishedSteps / totalSteps * 100).toFixed(0)
-	}
-
-	handleCheckboxChange(projectID, taskID, stepIndex) {
-		console.log(projectID, taskID, stepIndex);
+		return (finishedSteps / totalSteps * 100).toFixed(0) || 100
 	}
 
 	getProgressColor() {
@@ -40,19 +36,24 @@ export default class Task extends Component {
 							strokeDasharray={this.getProgressRadialValue() + ' 1000'}></circle>
 
 					</svg>
-					<span>{this.getPercFinished()}% done</span>
-					{/* <p></p> */}
+					<span>{this.getPercFinished()}%</span>
 				</div>
-				<h1 onClick={this.props.onTaskNameChangeRequest}>{this.props.name}</h1>
+				<h1 className="taskHeadline" onClick={this.props.onTaskNameChangeRequest}>{this.props.name}</h1>
+				<div className="buttonRow">
+					<button onClick={() => this.props.onTaskNameChangeRequest(this.props.id)} className="edit"></button>
+					<button onClick={() => this.props.onTaskDeleteRequest(this.props.id)} className="trash"></button>
+					<button onClick={() => this.props.onStepAddRequest(this.props.id)} className="add"></button>
+				</div>
 				<div className="steps">
 					{this.props.steps.map((step) => {
-							return <Step
-								key={step.id}
-								done={step.done}
-								name={step.name}
-								notes={step.notes}
-								onCheckboxChange={ () => this.props.onCheckboxChange(step.id) }>
-							</Step>
+						return <Step
+							key={step.id}
+							done={step.done}
+							name={step.name}
+							notes={step.notes}
+							onStepNameChangeRequest={ () => this.props.onStepNameChangeRequest(step.id) }
+							onCheckboxChange={ () => this.props.onCheckboxChange(step.id) }>
+						</Step>
 					})}
 				</div>
 
